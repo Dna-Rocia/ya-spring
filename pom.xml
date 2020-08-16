@@ -18,6 +18,7 @@
 
     <modules>
         <module>ya-spring-basic</module>
+        <module>ya-spring-senior</module>
 
     </modules>
 
