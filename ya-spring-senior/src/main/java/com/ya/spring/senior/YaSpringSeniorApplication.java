@@ -28,6 +28,9 @@ public class YaSpringSeniorApplication {
 
     }
 
+    /**
+     * 结果是并发执行并不是顺序执行
+     */
     public void asyncTaskExecutor(){
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(TaskExecutorConfig.class);
         AsyncTaskExecutorService asyncTaskExecutorService = context.getBean(AsyncTaskExecutorService.class);

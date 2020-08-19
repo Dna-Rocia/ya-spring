@@ -10,7 +10,7 @@ import java.util.concurrent.Executor;
 
 @Configuration
 @ComponentScan("com.ya.spring.senior.async")
-@EnableAsync//开启异步
+@EnableAsync//开启异步任务支持
 public class TaskExecutorConfig implements AsyncConfigurer {
 
     @Override
