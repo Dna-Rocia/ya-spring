@@ -29,6 +29,7 @@
         <poi.version>3.17</poi.version>
         <lombok.version>1.18.8</lombok.version>
         <commons-io.version>2.7</commons-io.version>
+        <junit.version>4.13</junit.version>
 
     </properties>
 
@@ -70,7 +71,25 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+
+        <!--            spring 测试依赖包-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
     </dependencies>
+
+
+
     <!--dependencyManagement用于管理依赖版本号-->
     <dependencyManagement>
         <dependencies>
