@@ -8,6 +8,8 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 
+import java.nio.charset.StandardCharsets;
+
 @Configuration
 @ComponentScan("com.ya.spring.basic.el")
 @PropertySource("classpath:com/ya/spring/basic/el/test.properties")
@@ -48,8 +50,8 @@ public class ELConfig {
         System.out.println(osName);
         System.out.println(randomNumber);
         System.out.println(fromAnother);
-        System.out.println(IOUtils.toString(testFile.getInputStream()));
-        System.out.println(IOUtils.toString(testUrl.getInputStream()));
+        System.out.println(IOUtils.toString(testFile.getInputStream(), StandardCharsets.UTF_8));
+        System.out.println(IOUtils.toString(testUrl.getInputStream(), StandardCharsets.UTF_8));
         System.out.println(bookName);
         System.out.println(environment.getProperty("book.author"));
         }catch(Exception e){
