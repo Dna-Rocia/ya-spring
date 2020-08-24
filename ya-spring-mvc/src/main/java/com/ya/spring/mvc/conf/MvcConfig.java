@@ -1,10 +1,12 @@
 package com.ya.spring.mvc.conf;
 
 
+import com.ya.spring.mvc.interceptor.DemoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -27,6 +29,17 @@ public class MvcConfig implements WebMvcConfigurer {
         // addResourceHandler：对外暴露的访问路径 ；addResourceLocations：文件放置目录
         registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
     }
+
+    @Bean
+    public DemoInterceptor demoInterceptor(){
+        return new DemoInterceptor();
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(demoInterceptor());
+    }
+
 
     @Bean
     public InternalResourceViewResolver viewResolver(){
