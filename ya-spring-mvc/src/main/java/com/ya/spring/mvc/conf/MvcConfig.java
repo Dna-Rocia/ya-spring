@@ -53,6 +53,7 @@ public class MvcConfig implements WebMvcConfigurer {
         return viewResolver;
     }
 
+//========================页面跳转快捷管理=====================================
     /**
      * 处理页面跳转。
      * 优点：更好的集中管理，更简洁
@@ -62,6 +63,23 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/index").setViewName("/index");
 
     }
+
+//======================== 请求路径后缀的匹配处理================================
+    /**
+     *  路径匹配参数设置 /aa.bb .后边的参数值会被忽略 -> /aa
+     *  因此加上该配置以后 /aa.bb
+     *
+     * @param configurer
+     */
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        configurer.setUseSuffixPatternMatch(false);//因在当前版本中，useSuffixPatternMatch 该属性已默认设置为false.所以该方法已废弃
+    }
+
+
+
+
+
 
 
 }
