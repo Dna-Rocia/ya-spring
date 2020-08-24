@@ -5,10 +5,7 @@ import com.ya.spring.mvc.interceptor.DemoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -23,13 +20,15 @@ import org.springframework.web.servlet.view.JstlView;
 public class MvcConfig implements WebMvcConfigurer {
 
 
-
+    //============================静态资源===============================
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // addResourceHandler：对外暴露的访问路径 ；addResourceLocations：文件放置目录
         registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
     }
 
+
+    //==============================拦截器================================
     @Bean
     public DemoInterceptor demoInterceptor(){
         return new DemoInterceptor();
@@ -41,6 +40,8 @@ public class MvcConfig implements WebMvcConfigurer {
     }
 
 
+
+    //==============================视图解析器==============================
     @Bean
     public InternalResourceViewResolver viewResolver(){
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -51,4 +52,16 @@ public class MvcConfig implements WebMvcConfigurer {
         viewResolver.setViewClass(JstlView.class);
         return viewResolver;
     }
+
+    /**
+     * 处理页面跳转。
+     * 优点：更好的集中管理，更简洁
+     */
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/index").setViewName("/index");
+
+    }
+
+
 }
