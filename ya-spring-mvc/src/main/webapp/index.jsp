@@ -1,5 +1,7 @@
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=GB2312" %>
+<%-- ÈçÎ´Ö¸¶¨×Ö·û±àÂë£¬¸ÃÒ³Ãæ»á´¦ÓÚÂÒÂëÀàÐÍ--%>
 <html>
 <body>
-<h2>è¿™é‡Œæ˜¯é¦–é¡µï¼Œèƒ½åˆ°è¿™é‡Œï¼Œè¯´æ˜Žé¡¹ç›®å¯åŠ¨æˆåŠŸï¼ï¼</h2>
+<h2>ÕâÀïÊÇÊ×Ò³£¬ÄÜµ½ÕâÀï£¬ËµÃ÷ÏîÄ¿Æô¶¯³É¹¦£¡£¡</h2>
 </body>
 </html>
