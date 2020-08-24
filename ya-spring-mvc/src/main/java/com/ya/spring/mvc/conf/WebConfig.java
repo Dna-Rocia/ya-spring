@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 /**
- * @Description
+ * @Description  替换 web.xml
     技术要点： 一. WebApplicationInitializer是spring用来配置servlet3.0+配置接口，替代了web.xml
              二. AnnotationConfigWebApplicationContext 注册配置类，并将其与ServletContext进行关联
              三. 注册springMvc的DispatcherServlet
