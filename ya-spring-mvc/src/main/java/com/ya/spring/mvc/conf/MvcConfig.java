@@ -5,6 +5,8 @@ import com.ya.spring.mvc.interceptor.DemoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
@@ -60,7 +62,8 @@ public class MvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/index").setViewName("/index");
+        registry.addViewController("/index").setViewName("/index"); //首页
+        registry.addViewController("/fileupload").setViewName("/fileupload");//文件上传
 
     }
 
@@ -77,8 +80,13 @@ public class MvcConfig implements WebMvcConfigurer {
     }
 
 
-
-
+//============================文件上传============================================
+    @Bean
+    public MultipartResolver multipartResolver(){
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+        commonsMultipartResolver.setMaxUploadSize(100000);//单位：byte  值为-1不限制长度
+        return commonsMultipartResolver;
+    }
 
 
 
