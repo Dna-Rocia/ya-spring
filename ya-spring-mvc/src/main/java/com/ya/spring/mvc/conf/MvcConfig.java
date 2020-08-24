@@ -5,11 +5,14 @@ import com.ya.spring.mvc.interceptor.DemoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import java.util.List;
 
 /**
  * @Description  静态资源的配置
@@ -64,6 +67,7 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("/index"); //首页
         registry.addViewController("/fileupload").setViewName("/fileupload");//文件上传
+        registry.addViewController("/converter").setViewName("/converter");
 
     }
 
@@ -81,6 +85,11 @@ public class MvcConfig implements WebMvcConfigurer {
 
 
 //============================文件上传============================================
+
+    /**
+     * 文件上传适配设置
+     * @return
+     */
     @Bean
     public MultipartResolver multipartResolver(){
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
@@ -88,6 +97,19 @@ public class MvcConfig implements WebMvcConfigurer {
         return commonsMultipartResolver;
     }
 
+//============================消息转换=============================================
+    @Bean
+    public MsgConverterConfig converter(){
+        return new MsgConverterConfig();
+    }
+    /**
+     *
+     * @param converters
+     */
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(converter());
+    }
 
 
 }
