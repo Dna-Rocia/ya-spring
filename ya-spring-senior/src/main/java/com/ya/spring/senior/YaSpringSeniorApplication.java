@@ -6,6 +6,7 @@ import com.ya.spring.senior.async.AsyncTaskExecutorService;
 import com.ya.spring.senior.aware.AwareService;
 import com.ya.spring.senior.condition.ListService;
 import com.ya.spring.senior.conf.*;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -13,15 +14,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class YaSpringSeniorApplication {
 
     public static void main(String[] args) {
-//        SpringApplication.run(YaSpringSeniorApplication.class, args);
-
-
-        YaSpringSeniorApplication application = new YaSpringSeniorApplication();
+        SpringApplication.run(YaSpringSeniorApplication.class, args);
+//        YaSpringSeniorApplication application = new YaSpringSeniorApplication();
 //        application.aware();
 //        application.asyncTaskExecutor();
 //        application.scheduled();
 //        application.condition();
-        application.annotation();
+//        application.annotation();
 
 
 
