@@ -67,7 +67,8 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("/index"); //首页
         registry.addViewController("/fileupload").setViewName("/fileupload");//文件上传
-        registry.addViewController("/converter").setViewName("/converter");
+        registry.addViewController("/converter").setViewName("/converter"); //消息的转化
+        registry.addViewController("/sse").setViewName("/sse");//server send event
 
     }
 
