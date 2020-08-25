@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
@@ -20,6 +21,7 @@ import java.util.List;
  * @Date 2020/8/24
  */
 @EnableWebMvc //开启对spring mvc 的支持，如不存在此句，该配置无效
+@EnableScheduling//开启任务计划的支持
 @Configuration  //声明配置类
 @ComponentScan("com.ya.spring.mvc") //作用范围
 public class MvcConfig implements WebMvcConfigurer {
@@ -62,6 +64,8 @@ public class MvcConfig implements WebMvcConfigurer {
     /**
      * 处理页面跳转。
      * 优点：更好的集中管理，更简洁
+     * addViewController：前端请求路径   setViewName：实际对应文件路径
+     * registry.addViewController("/index").setViewName("/index"); //首页
      */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -69,7 +73,7 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/fileupload").setViewName("/fileupload");//文件上传
         registry.addViewController("/converter").setViewName("/converter"); //消息的转化
         registry.addViewController("/sse").setViewName("/sse");//server send event
-
+        registry.addViewController("/async").setViewName("/async");//异步任务
     }
 
 //======================== 请求路径后缀的匹配处理================================
