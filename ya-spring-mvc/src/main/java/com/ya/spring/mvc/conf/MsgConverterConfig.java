@@ -17,7 +17,7 @@ import java.nio.charset.Charset;
  * @Author ROCIA
  * @Date 2020/8/24
  */
-public class MsgConverterConfig extends AbstractHttpMessageConverter {
+public class MsgConverterConfig extends AbstractHttpMessageConverter<Demo> {
 
     public MsgConverterConfig() {
         super(new MediaType("application","x-ya", Charset.defaultCharset())); //自定义了一个媒体类型
@@ -45,7 +45,7 @@ public class MsgConverterConfig extends AbstractHttpMessageConverter {
      * @throws HttpMessageNotReadableException
      */
     @Override
-    protected Object readInternal(Class clazz, HttpInputMessage inputMessage) throws IOException, HttpMessageNotReadableException {
+    protected Demo readInternal(Class clazz, HttpInputMessage inputMessage) throws IOException, HttpMessageNotReadableException {
         String temp = StreamUtils.copyToString(inputMessage.getBody(),Charset.defaultCharset());
         String[] arr = temp.split("-");
         return new Demo(new Long(arr[0]),arr[1]);
@@ -53,14 +53,14 @@ public class MsgConverterConfig extends AbstractHttpMessageConverter {
 
     /**
      * 处理如何输出数据到response中
-     * @param o
+     * @param demo
      * @param outputMessage
      * @throws IOException
      * @throws HttpMessageNotWritableException
      */
     @Override
-    protected void writeInternal(Object o, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
-        String out = "hello:"+((Demo)o).getId()+"-"+((Demo)o).getName();
+    protected void writeInternal(Demo demo, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
+        String out = "hello:"+demo.getId()+"-"+demo.getName();
         outputMessage.getBody().write(out.getBytes());
     }
 

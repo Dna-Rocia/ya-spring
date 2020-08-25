@@ -29,7 +29,7 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // addResourceHandler：对外暴露的访问路径 ；addResourceLocations：文件放置目录
-        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
+        registry.addResourceHandler("/assets/**").addResourceLocations("/WEB-INF/assets/");
     }
 
 

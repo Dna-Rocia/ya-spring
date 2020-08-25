@@ -15,13 +15,19 @@
 
     </div>
     <input type="button" onclick="req()" value="请求" />
-    <script src="../../assets/js/" type="text/javascript"></script>
+    <script src="../../assets/js/jquery-3.5.1.js" type="text/javascript"></script>
     <script>
         function req() {
-
-
+            $.ajax({
+                url:"convert",
+                data:"1-luo",
+                type:"POST",
+                contentType:"application/x-ya",
+                success:function (data) {
+                    $("#resp").html(data);
+                }
+            });
         }
-
     </script>
 
 </body>

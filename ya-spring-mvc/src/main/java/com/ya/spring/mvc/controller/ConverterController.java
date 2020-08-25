@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @Description
+ * @Description 参数按照自定义的media类型进行转化
  * @Author ROCIA
  * @Date 2020/8/24
  */
