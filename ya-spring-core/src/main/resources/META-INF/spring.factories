@@ -1,0 +1,2 @@
+#×Ô¶¯×°Åä1
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.ya.spring.core.conf.HelloAutoConfiguration
