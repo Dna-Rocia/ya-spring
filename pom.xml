@@ -20,6 +20,8 @@
         <module>ya-spring-basic</module>
         <module>ya-spring-senior</module>
         <module>ya-spring-mvc</module>
+        <module>ya-spring-core</module>
+        <module>ya-spring-demo</module>
 
     </modules>
 
@@ -74,6 +76,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!--        将配置文件设置为元注解-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
 
 <!--        <dependency>-->
