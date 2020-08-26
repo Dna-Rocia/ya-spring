@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.ya.spring.mvc.conf.MvcConfig;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -46,14 +45,14 @@ public class TestControllerTests {
 
 
     //region
-    @Before
+//    @Before
     public void setup(){
        this.mvc = MockMvcBuilders.webAppContextSetup(this.webApplicationContext).build();
     }
     //endregion
 
     //region
-    @Test
+//    @Test
     public void testNormalController()throws Exception{
 
         this.mvc.perform(MockMvcRequestBuilders.get("/normal"))
@@ -67,7 +66,7 @@ public class TestControllerTests {
 
 
     //region
-    @Test
+//    @Test
     public void testRestController() throws  Exception{
         this.mvc.perform(MockMvcRequestBuilders.get("/testRest"))
                 .andExpect(status().isOk())
