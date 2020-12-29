@@ -21,7 +21,7 @@
         <module>ya-spring-senior</module>
         <module>ya-spring-mvc</module>
         <module>ya-spring-core</module>
-        <module>ya-spring-demo</module>
+        <module>ya-spring-security</module>
 
     </modules>
 
