@@ -19,11 +19,17 @@ public class AwareService implements BeanNameAware, ResourceLoaderAware {
 
     private ResourceLoader loader;
 
+    /**
+     *  实现了 BeanNameAware 接口，作用是调用spring服务来获取Bean名称，可以重写setBeanName
+     */
     @Override
     public void setBeanName(String s) {
         this.beanName = s;
     }
 
+    /**
+     * 实现了 ResourceLoaderAware 接口，作用是调用资源加载器，来获取外部的资源文件
+     */
     @Override
     public void setResourceLoader(ResourceLoader resourceLoader) {
         this.loader = resourceLoader;

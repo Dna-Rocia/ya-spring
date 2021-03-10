@@ -14,11 +14,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class YaSpringSeniorApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(YaSpringSeniorApplication.class, args);
-//        YaSpringSeniorApplication application = new YaSpringSeniorApplication();
+//        SpringApplication.run(YaSpringSeniorApplication.class, args);
+        YaSpringSeniorApplication application = new YaSpringSeniorApplication();
 //        application.aware();
 //        application.asyncTaskExecutor();
-//        application.scheduled();
+        application.scheduled();
 //        application.condition();
 //        application.annotation();
 

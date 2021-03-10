@@ -19,7 +19,7 @@ public class YaSpringBasicApplication {
 //        yaSpringBasicApplication.bean();
 //        yaSpringBasicApplication.profile();
         yaSpringBasicApplication.event();
-
+//        yaSpringBasicApplication.scope();
     }
 
     public void event(){
